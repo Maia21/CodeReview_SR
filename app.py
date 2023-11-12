@@ -19,12 +19,17 @@ def home():
         account = user_login(username, password)
 
         if account != "None":
-            #return redirect(url_for("admin"))
-            return "<h1>SUCCESS</h1>"
+            session['conta'] = account
+            return redirect(url_for("user_profile"))
         else:
             return render_template("home.html")
 
     return render_template("home.html")
+
+@app.route('/user', methods=["POST", "GET"])
+def user_profile():
+    current_user = session['conta']
+    return render_template("user-profile.html", u = current_user)
 
 
 ###########################################################
@@ -41,6 +46,8 @@ def user_login(user, pwd):
         return account
     else:
         return "None"
+
+# def get_current_user()
 
 def create_database():
     connection = sqlite3.connect("database.db")
