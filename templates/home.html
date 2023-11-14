@@ -12,7 +12,12 @@
             <form action="" method="POST">
                 <input type="text" name="user" placeholder="ID Utilizador">
                 <input type="password" name="pass" placeholder="Password">
-                <button type="submit" class="login-btn" onclick="setNotification(4, 'teste', 'nc-ambulance')">Login</button>
+                <button type="submit" class="login-btn" onclick="">Login</button>
+            </form>
+            
+            <p>If you dont have any account, please create one:</p>
+            <form method="post" action="{{ url_for('register') }}">
+                <button type="submit">Register</button>
             </form>
         </div>
     </body>

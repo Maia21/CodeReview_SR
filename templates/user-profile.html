@@ -1,2 +1,8 @@
-<h1>User Page</h1>
-<button>See My Profile</button>
+<h1>Welcome {{u[3]}}</h1>
+<form method="post" action="{{ url_for('see_user_profile', uid=u[0]) }}">
+    <button type="submit">See My Profile</button>
+</form>
+
+<form action="/logout" method="post">
+    <input type="submit" value="Logout">
+</form>
